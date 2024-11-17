@@ -1,18 +1,15 @@
-
-package com.example.lab12_maps
-
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import com.example.lab12_maps.R
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.maps.android.compose.GoogleMap
 import com.google.maps.android.compose.rememberCameraPositionState
 import com.google.maps.android.compose.rememberMarkerState
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.compose.Marker
-
 
 @Composable
 fun MapScreen() {
@@ -21,19 +18,18 @@ fun MapScreen() {
         position = com.google.android.gms.maps.model.CameraPosition.fromLatLngZoom(ArequipaLocation, 12f)
     }
 
-
     Box(modifier = Modifier.fillMaxSize()) {
         // Añadir GoogleMap al layout
         GoogleMap(
             modifier = Modifier.fillMaxSize(),
             cameraPositionState = cameraPositionState
         ) {
-            // Añadir marcador en Denver, Colorado
+            // Añadir marcador en Arequipa Perú con ícono personalizado
             Marker(
                 state = rememberMarkerState(position = ArequipaLocation),
+                icon = BitmapDescriptorFactory.fromResource(R.drawable.monta_a), // Ícono personalizado
                 title = "Arequipa, Perú"
             )
         }
     }
 }
-
