@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "com.example.lab12_maps"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.lab12_maps"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -67,8 +67,12 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-    implementation(libs.maps.compose)
-    implementation(libs.maps.compose.utils)
-    implementation(libs.maps.compose.widgets)
 
+    implementation("com.google.maps.android:maps-compose:$mapsComposeVersion")
+
+    // Utilidades de Google Maps para Jetpack Compose
+    implementation("com.google.maps.android:maps-compose-utils:$mapsComposeVersion")
+
+    // Widgets de Google Maps Compose
+    implementation("com.google.maps.android:maps-compose-widgets:$mapsComposeVersion")
 }
